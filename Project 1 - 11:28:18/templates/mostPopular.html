@@ -1,0 +1,45 @@
+
+<html>
+
+  <style>
+    body{ 
+      font-size: 15pt;
+      font-family: arial;
+    }
+  </style>
+
+<body>
+  <h1>BeautyChat! (Most Popular)</h1>
+
+  <p><a href="/homepage">Homepage</a></p>
+
+  <p>What to know what is the most popular item on Beauty Chat?</p>
+
+  <fieldset>
+  <legend>Product with the Most Reviews:</legend>
+  <table>
+    <thead>
+      <th>TOP</th>
+      <th>Brand</th>
+      <th>Name</th>
+      <th>Number of reviews</th>
+    </thead>
+    <tbody>
+      {% for l in List %}
+      <tr>
+        <td>{{ l.cnt }}</td>
+        <td>{{ l.product_brand }}</td>
+        <td>{{ l.product_name }}</td>
+        <td>{{ l.count }}</td>
+
+
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  </fieldset>
+
+</body>
+
+
+</html>

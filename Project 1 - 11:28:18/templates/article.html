@@ -1,0 +1,59 @@
+
+<html>
+
+  <style>
+    body{ 
+      font-size: 15pt;
+      font-family: arial;
+    }
+  </style>
+
+<body>
+  <h1>BeautyChat! (Article Page)</h1>
+
+  <p><a href="/homepage">Homepage</a></p>
+
+  <fieldset>
+  <legend>Article</legend>
+  <br>Post Time: {{article.article_post_time}}<br>
+  <br>Author: {{article.users_id}}<br>
+  <br>Content: {{article.article_text}}<br>
+  <br>Image URL: {{article.article_image_url}}<br>
+  </fieldset>
+
+  <fieldset>
+  <legend>Comments:</legend>
+  <table>
+    <thead>
+      <th>User ID</th>
+      <th>Reply Time</th>
+      <th>Comment</th>
+    </thead>
+    <tbody>
+      {% for c in Comment %}
+      <tr>
+        <td>{{ c.comment_users_id }}</td>
+        <td>{{ c.article_reply_time }}</td>
+        <td>{{ c.comment_text }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <br>
+  </fieldset>
+
+  <form method="POST" action="/addComment">
+  <fieldset>
+  <legend>Write a Comment:</legend>
+  <br>User ID:<br>
+  <input type="text" name="comment_users_id">
+  <br>Comment:<br>
+  <input type="text" name="comment_text">
+  <br><br>
+  <input type="submit" value="Submit/Add">
+  </fieldset>
+  </form>
+
+</body>
+
+</html>

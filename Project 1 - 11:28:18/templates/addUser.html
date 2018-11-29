@@ -1,0 +1,61 @@
+
+<html>
+  <style>
+    body{ 
+      font-size: 15pt;
+      font-family: arial;
+    }
+  </style>
+
+<body>
+  <h1>BeautyChat! (Sign Up)</h1>
+
+<p><a href="/homepage">Homepage</a></p>
+
+<form method="POST" action="/addUser">
+  <fieldset>
+  <legend>New User Information:</legend>
+  <br>User ID:<br>
+  <input type="text" name="users_id">
+  <br>User's Name:<br>
+  <input type="text" name="users_name">
+  <br>Hair Color:<br>
+  <select name="hair_color">
+    <option value="Blond">Blond</option>
+    <option value="Brown">Brown</option> 
+    <option value="Gray">Gray</option>      
+    <option value="Silver">Silver</option>  
+    <option value="Black">Black</option> 
+    <option value="Red">Red</option>  
+  </select>
+  <br>Eye Color:<br>
+  <select name="eye_color">
+    <option value="Amber">Amber</option>
+    <option value="Blue">Blue</option>  
+    <option value="Brown">Brown</option> 
+    <option value="Gray">Gray</option> 
+    <option value="Green">Green</option>
+    <option value="Hazel">Hazel</option>       
+    <option value="Purple">Purple</option>  
+    <option value="Black">Black</option> 
+    <option value="Gold">Gold</option>  
+  </select>
+  <br>Skin Type:<br>
+  <select name="skin_type">
+    <option value="Normal">Normal</option>
+    <option value="Dry">Dry</option>  
+    <option value="Oily">Oily</option> 
+    <option value="Combination">Combination</option> 
+    <option value="Sensitive">Sensitive</option>       
+  </select>
+  <br>Date of Birth (mm/dd/yyyy):<br>
+  <input type="date" name="date_of_birth">
+  <br><br>
+  <input type="submit" value="Submit/addUser">
+</fieldset>
+</form> 
+
+</body>
+
+</html>
+

@@ -1,0 +1,110 @@
+
+<html>
+
+  <style>
+    body{ 
+      font-size: 15pt;
+      font-family: arial;
+    }
+  </style>
+
+<body>
+  <h1>BeautyChat! (Product Page)</h1>
+
+  <p><a href="/homepage">Homepage</a></p>
+
+  <fieldset>
+  <legend>Product Information</legend>
+      {% for product in Product %}
+  <table>
+    <thead>
+      <th>Brand</th>
+      <th>Name</th>
+      <th>Image URL</th>
+      <th>Category</th>
+      <th>Price</th>
+    </thead>
+    <tbody>
+        <td>{{ product.product_brand}}</td>
+        <td>{{ product.product_name }}</td>
+        <td>{{ product.product_image_url }}</td>
+        <td>{{ product.category }}</td>
+        <td>{{ product.price }}</td>
+    </tbody>
+  </table>
+      {% endfor %}
+  </fieldset>
+
+  <fieldset>
+  <legend>List of Ingredients:</legend>
+  <table>
+    <thead>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Function</th>
+      <th>Description</th>
+    </thead>
+    <tbody>
+      {% for i in Ingredients %}
+      <tr>
+        <td>{{ i.ingredient_id }}</td>
+        <td>{{ i.ingredient_name }}</td>
+        <td>{{ i.function }}</td>
+        <td>{{ i.description }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  </fieldset>
+
+  <fieldset>
+  <legend>Reviews:</legend>
+      {% for r in totalReviews %}
+  <p>Total Number of Reviews: {{ r.num }}</p>
+        {% endfor %}
+  <table>
+    <thead>
+      <th>User ID</th>
+      <th>Rating</th>
+      <th>Review</th>
+      <th>Post Time</th>
+      <th>Was the Review Helpful?</th>
+    </thead>
+    <tbody>
+      {% for r in Review %}
+      <tr>
+        <td>{{ r.users_id }}</td>
+        <td>{{ r.rating }}</td>
+        <td>{{ r.review_text }}</td>
+      <td>{{ r.review_time }}</td>
+      <td>
+          <center>
+          <form method="POST" action="/addResponse">
+              <br>Responding User ID:<br>
+              <input type="text" name="responding_users_id">
+
+              <input type="hidden" name="original_users_id" value = "{{r.users_id}}">
+              <input type="hidden" name="review_time" value = "{{r.review_time}}">
+              <br>Answer<br>
+              <select name="helpful">
+                  <option value=1>Yes</option>
+                  <option value=0>No</option> 
+                  </select>
+              <input type="hidden" name="product_brand" value ="{{Product.product_brand}}" >
+              <input type="hidden" name="product_name" value = "{{Product.product_name}}">
+            <input type="submit" value="Submit">
+          </form> 
+          </center>
+      </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <br>
+      <a href="/to_addReview"><button type="button">Write a Review</button></a>
+  </fieldset>
+
+</body>
+
+
+</html>

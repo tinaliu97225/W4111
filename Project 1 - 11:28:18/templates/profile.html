@@ -1,0 +1,43 @@
+
+<html>
+
+  <style>
+    body{ 
+      font-size: 15pt;
+      font-family: arial;
+    }
+  </style>
+
+<body>
+  <h1>BeautyChat! (User Profile)</h1>
+
+  <p><a href="/homepage">Homepage</a></p>
+
+  <fieldset> 
+  <legend>User Information</legend>
+      {% for u in Users %}
+  <table>
+    <thead>
+      <th>User ID</th>
+      <th>Username</th>
+      <th>Hair Color</th>
+      <th>Eye Color</th>
+      <th>Skin Type</th>
+      <th>Date of Birth</th>
+    </thead>
+    <tbody>
+        <td>{{ u.users_id}}</td>
+        <td>{{ u.users_name }}</td>
+        <td>{{ u.hair_color }}</td>
+        <td>{{ u.eye_color }}</td>
+        <td>{{ u.skin_type }}</td>
+        <td>{{ u.date_of_birth }}</td>
+    </tbody>
+  </table>
+      {% endfor %}
+  </fieldset>
+
+</body>
+
+
+</html>

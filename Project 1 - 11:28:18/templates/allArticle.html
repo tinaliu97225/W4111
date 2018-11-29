@@ -1,0 +1,82 @@
+
+<html>
+
+  <style>
+    body{ 
+      font-size: 15pt;
+      font-family: arial;
+    }
+  </style>
+
+<body>
+  <h1>BeautyChat! (All Article Page)</h1>
+
+  <p><a href="/homepage">Homepage</a></p>
+    <h1><a href="/to_addArticle">Write a new article!</a></h1>
+    
+  {% for a in Article %}
+
+  <fieldset>
+  <fieldset>
+  <legend>Article</legend>
+  <br>Post Time: {{a.article_post_time}}<br>
+  <br>Author: {{a.users_id}}<br>
+  <br>Content: {{a.article_text}}<br>
+  <br>Image URL: {{a.article_image_url}}<br>
+  </fieldset>
+
+  {% for c in Comment %}
+  {% if a.users_id == c.article_users_id and a.article_post_time == c.article_post_time %}
+
+  <fieldset>
+  <legend>Comments:</legend>
+  <table>
+    <thead>
+      <th>User ID</th>
+      <th>Reply Time</th>
+      <th>Comment</th>
+      <th>Delete?</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ c.comment_users_id }}</td>
+        <td>{{ c.article_reply_time }}</td>
+        <td>{{ c.comment_text }}</td>
+        <td>
+          <center>
+          <form method="POST" action="/deletecomment">
+            <input type="hidden" name="d_comment_users_id" value = "{{c.comment_users_id}}" >
+            <input type="hidden" name="d_article_reply_time" value = "{{c.article_reply_time}}" >
+            <input type="submit" value="Yes!">
+          </form>
+          </center>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  </fieldset>
+  {% endif %}
+  {% endfor %}
+
+  
+  <form method="POST" action="/addComment">
+  <fieldset>
+  <legend>Write a Comment:</legend>
+      <input type="hidden" name="article_users_id" value = "{{a.users_id}}" >
+      <input type="hidden" name="article_post_time" value = "{{a.article_post_time}}" >
+  <br>User ID:<br>
+  <input type="text" name="comment_users_id" >
+  <br>Comment:<br>
+  <input type="text" name="comment_text">
+  <br><br>
+
+  <input type="submit" value="Submit/Add">
+  </fieldset>
+  </form>
+  </fieldset>
+  {% endfor %}
+
+</body>
+
+</html>

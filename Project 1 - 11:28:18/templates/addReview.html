@@ -1,0 +1,37 @@
+
+<html>
+  <style>
+    body{ 
+      font-size: 15pt;
+      font-family: arial;
+    }
+  </style>
+
+<body>
+  <h1>BeautyChat! (Add New Review)</h1>
+
+<p><a href="/homepage">Homepage</a></p>
+
+<form method="POST" action="/addReview">
+  <fieldset>
+  <legend>New Review Information:</legend>
+  <br>User ID:<br>
+  <input type="text" name="users_id">
+
+  <input type="hidden" name="product_brand">
+
+  <input type="hidden" name="product_name">
+  <br>Rating (1.0 - 10.0):<br>
+  <input type="number" step = ".1" name="rating">
+  <br>Review Text:<br>
+  <input type="text" name="review_text">
+  <br><br>
+  <input type="submit" value="Submit/Add">
+</fieldset>
+</form> 
+
+</body>
+
+
+</html>
+

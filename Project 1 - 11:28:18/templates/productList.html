@@ -1,0 +1,56 @@
+
+<html>
+
+  <style>
+    body{ 
+      font-size: 15pt;
+      font-family: arial;
+    }
+  </style>
+
+<body>
+  <h1>BeautyChat! (Product List)</h1>
+
+  <p><a href="/homepage">Homepage</a></p>
+
+  <p>Please use search to to go to product page!</p>
+
+  <fieldset>
+  <legend>List of All Products:</legend>
+  <table>
+    <thead>
+      <th>Entry</th>
+      <th>Brand</th>
+      <th>Name</th>
+      <th>Image URL</th>
+      <th>Category</th>
+      <th>Price</th>
+    </thead>
+    <tbody>
+      {% for p in Product %}
+      <tr>
+          <td>{{ p.cnt }} </td>
+        <td>{{ p.product_brand }}</td>
+        <td>{{ p.product_name }}</td>
+        <td>{{ p.product_image_url }}</td>
+        <td>{{ p.category }}</td>
+        <td>{{ p.price }}</td>
+      </tr>
+      {% endfor %}
+        
+                  <form method="POST" action="/product">
+              <br>Search your interesting product to see more information about it!<br>              
+              <br>Product brand:<br>
+              <input type="text" name="product_brand">
+              <br>Product name:<br>
+              <input type="text" name="product_name">
+                  <input type="submit" value="Search it!">
+        </form>
+    </tbody>
+  </table>
+  </fieldset>
+
+</body>
+
+
+</html>

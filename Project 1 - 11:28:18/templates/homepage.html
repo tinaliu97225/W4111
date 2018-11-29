@@ -1,0 +1,50 @@
+
+<html>
+  <style>
+    body{ 
+      font-size: 15pt;
+      font-family: arial;
+    }
+  </style>
+
+
+<body>
+  <h1>Welcome to BeautyChat! </h1>
+    <h3>Find beauty products that fit you best and over 10 reviews on them!</h3>
+
+
+<p><a href="/to_addUser">SIGN UP NOW!</a></p>
+<p><a href="/allArticle">Reading Articles</a></p>
+<p><a href="/productList">Check Your Interested Items' Reviews</a></p>
+<p><a href="/mostPopular">Look at the products that everyone is talking about...</a></p>
+<p><a href="/Iwant"></a></p>
+    <form method="POST" action="/Iwant">
+  <fieldset>
+  <legend>I want product with...:</legend>
+  <input type="text" name="ingredient_name">
+  <input type="submit" value="Submit/Add">
+    <br>
+        </fieldset>
+    </form>
+
+<form method="POST" action="/profile">
+  <fieldset>
+  <legend>Who is :</legend>
+  <input type="text" name="users_id">
+  <input type="submit" value="Who's this?">
+    <br>
+        </fieldset>
+    </form>
+      <h3>The hottest products you might be interested in</h3>
+    {% for n in data %}
+  <fieldset>
+  <legend>TOP {{n.cnt}} Product recommended to you!</legend>
+  <br>Product Brand: {{n.product_brand}}<br>
+  <br>Product Name: {{n.product_name}}<br>
+  <br>Rating: {{n.rating}}<br>
+  </fieldset>
+  {% endfor %}
+</body>
+
+
+</html>

@@ -1,0 +1,35 @@
+
+<html>
+
+  <style>
+    body{ 
+      font-size: 15pt;
+      font-family: arial;
+    }
+  </style>
+
+<body>
+  <h1>BeautyChat! (I want... Page)</h1>
+
+  <p><a href="/homepage">Homepage</a></p>
+    <br><p>Products with the ingredients you want!</p><br>
+  <fieldset> 
+  <legend>Product Information</legend>
+      {% for product in Product %}
+  <table>
+    <thead>
+      <th>Brand</th>
+      <th>Name</th>
+    </thead>
+    <tbody>
+        <td>{{ product.product_brand}}</td>
+        <td>{{ product.product_name }}</td>
+    </tbody>
+  </table>
+      {% endfor %}
+  </fieldset>
+
+</body>
+
+
+</html>
